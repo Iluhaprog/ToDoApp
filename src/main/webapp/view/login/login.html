@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+    <link href="https://fonts.googleapis.com/css?family=Merienda|Inconsolata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost:8080/ToDoApp/view/login/css/login/main.css">
+    <!-- <link rel="stylesheet" href="css/login/main.css">  -->
+</head>
+<body>
+
+    <div class="error" id="error">
+        Invalid username or password!
+    </div>
+
+    <div class="error" id="errorR">
+        Username exist!
+    </div>
+
+    <div class="success" id="success">
+        Successfully registration!
+    </div>
+
+    <main class="main">
+
+        <div class="block block-form-1" id="f1">
+            <form id="form-1" action="http://localhost:8080/ToDoApp/login" method="POST"
+                  onsubmit="submitForm(); return false;" accept-charset="utf-8">
+                <div class="form-item">
+                    <input type="text" name="name" id="name" placeholder="Name">
+                </div>
+                <div class="form-item">
+                    <input type="password" name="pass" id="pass" placeholder="Password">
+                </div>
+                <div class="form-button">
+                    <button id="loginButton">Sign in</button>
+                </div>
+            </form>
+        </div>
+        <div class="block block-between" id="f2">
+            <h1>
+                <span class="tl1" id="tl1">Sing In</span>
+                <span class="tl2" id="tl2">Sign Up</span>
+            </h1>
+            <button class="button-bt row" id="btn1" data-click-counter="0">
+                <span class="bt1" id="bt1">Sign Up!</span>
+                <span class="bt2" id="bt2">Sign In!</span>
+            </button>
+        </div>
+        <div class="block block-form-2" id="f3">
+            <form action="http://localhost:8080/ToDoApp/registration" 
+                    onsubmit="registration(); return false;" method="POST" accept-charset="utf-8">
+                <div class="form-item">
+                    <input type="text" name="name" id="r-name" placeholder="Name">
+                </div>
+                <div class="form-item">
+                    <input type="password" name="pass" id="r-pass" placeholder="Password">
+                </div>
+                <div class="form-button">
+                    <button>Sign up</button>
+                </div>
+            </form>
+        </div>
+
+    </main>
+
+    <script src="http://localhost:8080/ToDoApp/view/login/js/main.js"></script>
+    <script src="http://localhost:8080/ToDoApp/view/login/js/script.js"></script>
+    <!-- <script src="js/main.js"></script>
+    <script src="js/script.js"></script> -->
+</body>
+</html>
