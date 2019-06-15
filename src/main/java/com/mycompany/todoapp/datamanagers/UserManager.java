@@ -33,7 +33,7 @@ public class UserManager {
         ResultSet rs = cu.doQuery(sql);
         
         User user = setDataToUser(rs);
-
+        cu.close();
         return user;
     }
 
@@ -44,7 +44,7 @@ public class UserManager {
         ResultSet rs = cu.doQuery(sql);
 
         User user = setDataToUser(rs);
-
+        cu.close();
         return user;
     }
 
@@ -52,12 +52,14 @@ public class UserManager {
         ConnectionUtil cu = new ConnectionUtil();
         String sql = "insert into Users(name, password) values ( \"" + name + "\",\"" + pass + "\")"; 
         cu.doQuery(sql);
+        cu.close();
     }
 
     public void deleteById(int id) {
         ConnectionUtil cu = new ConnectionUtil();
         String sql = "delete from Users where id=" + id;
         cu.doQuery(sql);
+        cu.close();
     }
 
     public List<User> getAll() {
@@ -75,6 +77,7 @@ public class UserManager {
                 user.setRole(rs.getString("role"));
                 users.add(user);
             } 
+            cu.close();
         } catch(SQLException e) {
             e.printStackTrace();
         }

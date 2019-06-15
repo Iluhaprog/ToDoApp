@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter("/doing/insert")
-public class DoingInserterFilter implements Filter {
+@WebFilter({"/doing/insert", "/doing/change", "/doing/delete"})
+public class DoingFilter implements Filter {
 
     public void init(FilterConfig filterConfig) throws ServletException {
 

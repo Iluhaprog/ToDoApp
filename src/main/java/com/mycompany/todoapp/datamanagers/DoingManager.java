@@ -53,6 +53,7 @@ public class DoingManager {
             while(rs.next()) {
                 number = rs.getInt("count(1)");
             }
+            cu.close();
             return number;
         } catch(SQLException e) {
             e.printStackTrace();
@@ -79,6 +80,7 @@ public class DoingManager {
                 doing.setUserId(rs.getInt("userId"));
                 doings.add(doing);
             }
+            cu.close();
             return doings;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -93,6 +95,7 @@ public class DoingManager {
         ResultSet rs = cu.doQuery(sql);
 
         Doing doing = setDataToDoing(rs);
+        cu.close();
 
         return doing;
     }
@@ -101,30 +104,35 @@ public class DoingManager {
         ConnectionUtil cu = new ConnectionUtil();
         String sql = "insert into Doings(doingText, userId) values(\"" + text + "\"," + userId + ")";
         cu.doQuery(sql);
+        cu.close();
     } 
 
     public void deleteByIdAndUserId(int id, int userId) {
         ConnectionUtil cu = new ConnectionUtil();
         String sql = "delete from Doings where id=" + id + " and userId=" + userId;
         cu.doQuery(sql);
+        cu.close();
     }
 
     public void deleteById(int id) {
         ConnectionUtil cu = new ConnectionUtil();
         String sql = "delete from Doings where id=" + id;
         cu.doQuery(sql);
+        cu.close();
     }
 
     public void update(int id, String text, int userId) {
         ConnectionUtil cu = new ConnectionUtil();
         String sql = "update Doings set doingText=" + text + " where id=" + id + " and userId=" + userId;
         cu.doQuery(sql);
+        cu.close();
     }
 
     public void update(int id, boolean isCompleted, int userId) {
         ConnectionUtil cu = new ConnectionUtil();
         String sql = "update Doings set isCompleted=" + isCompleted + " where id=" + id + " and userId=" + userId;
         cu.doQuery(sql);
+        cu.close();
     }
 
     public List<Doing> getAll() {
@@ -144,6 +152,7 @@ public class DoingManager {
                 doing.setUserId(rs.getInt("userId"));
                 doings.add(doing);
             }
+            cu.close();
             return doings;
         } catch (SQLException e) {
             e.printStackTrace();
